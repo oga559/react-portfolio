@@ -12,15 +12,13 @@ const App = () => {
 
   return (
     <BrowserRouter>
-      <div>
-        <Header header={header} setHeader={setHeader}/>
-      </div>
+      <Header header={header} setHeader={setHeader}/>
       <Switch>
-            <Route exact path="/"  component={Home} />
-            <Route exact path="/about" component={About} />
-            <Route exact path="/Skill" component={Skill} />
-            <Route exact path="/Contact" component={Contact} />
-        </Switch>
+        <Route exact path="/"  component={Home} />
+        <Route exact path="/about" component={About} />
+        <Route exact path="/Skill" component={Skill} />
+        <Route exact path="/Contact" component={Contact} />
+      </Switch>
       <div>
         <Footer />
       </div>
