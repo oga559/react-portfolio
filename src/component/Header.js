@@ -9,15 +9,20 @@ const HeaderCss = styled.div`
     display: flex;
     box-sizing: border-box;
     background-color: #eeeeee;
+    width: 100%;
 `
 const LinkCss = styled(Link)`
     margin: 0;
-    padding: 12px;
+    padding: 12px 2%;
     width: 80px;
     color: #3a3a3f;
     text-decoration: none;
     :hover{
         opacity: 0.7;
+        background-color: #b0b0b2;
+    }
+    :active{
+        background-color: #b0b0b2;
     }
 `
 

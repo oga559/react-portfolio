@@ -1,23 +1,6 @@
 import React from 'react';
-import styled,{keyframes} from 'styled-components';
-
-const slideIn = keyframes`
-  0% {
-    transform: translateX(180px);
-    opacity: 0;
-  }
-  100% {
-    transform: translateX(0);
-  }
-  40%,100% {
-    opacity: 1;
-  }
-`
-
-const AboutSlide = styled.div`
-  animation: ${slideIn} 1s cubic-bezier(0.25, 1, 0.5, 1) 1 forwards;
-  height: 90vh;
-`
+import styled from 'styled-components';
+import * as FadeIn from "../component/FadeIn";
 
 const H2 = styled.h2`
   text-align: center;
@@ -41,17 +24,23 @@ const Dt = styled.dt`
 
 const Dd = styled.dd`
   text-align: center;
-  width: 230px;
+  width: 80%;
   height: 50px;
   margin: 0 auto;
+  font-family: 'Noto Serif JP', serif;
+`
+const QuestionDd = styled.dd`
+  margin: 0 auto;
+  overflow-wrap: break-word;
   font-family: 'Noto Serif JP', serif;
 `
 
 export const About = () =>{
     return(
-      <AboutSlide>
+      <>
+      <FadeIn.Left>
       <H2>
-        My About
+        My Profile
       </H2>
         <Dl>
           <Dt>
@@ -61,6 +50,8 @@ export const About = () =>{
             尾形 涼介
           </Dd>
         </Dl>
+      </FadeIn.Left>
+      <FadeIn.Right>
         <Dl>
           <Dt>
             Age
@@ -69,6 +60,8 @@ export const About = () =>{
             20歳(大学2年生)
           </Dd>
         </Dl>
+      </FadeIn.Right>
+      <FadeIn.Left>
         <Dl>
           <Dt>
             Birthday
@@ -77,6 +70,48 @@ export const About = () =>{
             2001/05/07
           </Dd>
         </Dl>
-      </AboutSlide>
+      </FadeIn.Left>
+      <FadeIn.Right>
+      <Dl>
+          <Dt>
+            University
+          </Dt>
+          <Dd>
+            東北学院大学 機械知能工学科
+          </Dd>
+        </Dl>
+      </FadeIn.Right>
+      <FadeIn.Left>
+        <Dl>
+          <Dt>
+            Q,なぜプログラミングを始めたのか
+          </Dt>
+          <QuestionDd>
+            <p>大学１年で難病を患ってしまい肝臓の移植手術しました。その経験からITで医療のサービスを作りたいと思い、プログラミングを始めました。
+            </p>
+          </QuestionDd>
+        </Dl>
+      </FadeIn.Left>
+      <FadeIn.Right>
+        <Dl>
+          <Dt>
+            Q,趣味は何か
+          </Dt>
+          <QuestionDd>
+            <p>剣道です。中高と続けており、県一位になったり選抜大会に出たことがあります。</p>
+          </QuestionDd>
+        </Dl>
+      </FadeIn.Right>
+      <FadeIn.Left>
+        <Dl>
+          <Dt>
+            Q,今後やりたいこと
+          </Dt>
+          <QuestionDd>
+            <p>インターンやアルバイトなどで実務経験を積んでレベルアップしたいと思っています。</p>
+          </QuestionDd>
+        </Dl>
+      </FadeIn.Left>
+      </>
     )
 }
