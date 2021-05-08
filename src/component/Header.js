@@ -8,6 +8,7 @@ const HeaderCss = styled.div`
     text-align: center;
     display: flex;
     box-sizing: border-box;
+    background-color: #eeeeee;
 `
 const LinkCss = styled(Link)`
     margin: 0;
@@ -15,20 +16,19 @@ const LinkCss = styled(Link)`
     width: 80px;
     color: #3a3a3f;
     text-decoration: none;
-    border-bottom: ${props => props.focused ? '2px solid #f44336' : 'none'};
     :hover{
-        background-color: #eeeeee;
+        opacity: 0.7;
     }
 `
 
-export const Header = ({header,setHeader}) => {
+export const Header = () => {
     return(
         <>
         <HeaderCss>
-                <LinkCss to="/" onClick={()=>setHeader('home')} focused={header === 'home'}>Home</LinkCss>
-                <LinkCss to="/About" onClick={()=>setHeader('about')} focused={header === 'about'}>About</LinkCss>
-                <LinkCss to="/Skill" onClick={()=>setHeader('skill')} focused={header === 'skill'}>Skill</LinkCss>
-                <LinkCss to="/Contact" onClick={()=>setHeader('contact')} focused={header === 'contact'}>Contact</LinkCss>
+                <LinkCss to="/" >Home</LinkCss>
+                <LinkCss to="/About">About</LinkCss>
+                <LinkCss to="/Skill">Skill</LinkCss>
+                <LinkCss to="/Contact">Contact</LinkCss>
         </HeaderCss>
         </>
     )

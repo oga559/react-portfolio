@@ -1,4 +1,4 @@
-import {useState} from 'react';
+import React from 'react';
 import { BrowserRouter,Switch,Route } from 'react-router-dom';
 import { Footer } from './component/Footer';
 import { Header } from './component/Header';
@@ -8,11 +8,9 @@ import { Skill } from './pages/Skill';
 import { Contact } from './pages/Contact';
 
 const App = () => {
-  const [header, setHeader] = useState('home');
-
   return (
     <BrowserRouter>
-      <Header header={header} setHeader={setHeader}/>
+      <Header />
       <Switch>
         <Route exact path="/"  component={Home} />
         <Route exact path="/about" component={About} />

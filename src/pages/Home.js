@@ -25,8 +25,8 @@ const fadeIn = keyframes`
 const Area = styled.div`
     background: #4e54c8;
     background: -webkit-linear-gradient(to left, #8f94fb, #4e54c8);
-    width: 100%;
     height: 90vh;
+    display: table;
 `
 const CirclesUl = styled.ul`
     top: 0;
@@ -83,16 +83,16 @@ const CirclesLi = styled.li`
     }
     :nth-child(6){
         left: 75%;
-        width: 110px;
-        height: 80px;
+        width: 20px;
+        height: 30px;
         animation-delay: 0s;
         animation-duration: 35s
     }
 
     :nth-child(7){
         left: 35%;
-        width: 150px;
-        height: 150px;
+        width: 10px;
+        height: 10px;
         animation-delay: 0s;
     }
 
@@ -100,7 +100,7 @@ const CirclesLi = styled.li`
         left: 50%;
         width: 25px;
         height: 25px;
-        animation-delay: 15s;
+        animation-delay: 1s;
         animation-duration: 45s;
     }
 
@@ -129,15 +129,19 @@ const FadeIn = styled.h2`
     animation-duration: 3s;
     animation-fill-mode: forwards;
     margin: 0;
-    line-height: 400px;
+    line-height: 100%;
+    width: 100%;
     font-size: 40px;
+    font-family: 'Noto Serif JP', serif;
+    vertical-align: middle;
+    display: table-cell;
 `
 
 export const Home = () =>{
     return(
         <HomeCss>
                 <Area>
-                    <FadeIn>Welcome to Ryousuke`s Portfolio</FadeIn>
+                    <FadeIn>Ogata Ryousuke`s Portfolio</FadeIn>
                     <CirclesUl>
                         <CirclesLi></CirclesLi>
                         <CirclesLi></CirclesLi>
