@@ -23,7 +23,7 @@ const fadeIn = keyframes`
     }
 `
 const Area = styled.div`
-    background: #4e54c8;
+    background: black;
     background: -webkit-linear-gradient(to left, #8f94fb, #4e54c8);
     height: 90vh;
     display: table;
@@ -132,16 +132,18 @@ const FadeIn = styled.h2`
     line-height: 100%;
     width: 100%;
     font-size: 40px;
-    font-family: 'Noto Serif JP', serif;
     vertical-align: middle;
     display: table-cell;
+    color: white;
+    font-family: 'Londrina Shadow', cursive;
+    font-size: 50px;
 `
 
 export const Home = () =>{
     return(
         <HomeCss>
                 <Area>
-                    <FadeIn>Ogata Ryousuke`s Portfolio</FadeIn>
+                    <FadeIn>Ogata Ryousuke's Portfolio</FadeIn>
                     <CirclesUl>
                         <CirclesLi></CirclesLi>
                         <CirclesLi></CirclesLi>

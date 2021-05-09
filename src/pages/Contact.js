@@ -53,13 +53,20 @@ const P = styled.p`
     font-size: 35px;
 `
 
+const Border = styled.div`
+    border: 4px double #ddd;
+    margin: 10px auto 90px auto;
+    padding: 10px 10px 10px 10px;
+    font-size: 18px;
+    width: 30%;
+`
+
 export const Contact = () =>{
     return(
         <ContactCss>
             <FadeIn.Up>
                 <H2>Waiting for Contact !!!</H2>
-                <H3>FOLLOW ME</H3>
-            </FadeIn.Up>
+            <H3>FOLLOW ME</H3>
             <Ul>
                 <Li>
                     <a href="https://twitter.com/ryousuk59423439"><Icon icon={faTwitter} /></a>
@@ -73,9 +80,13 @@ export const Contact = () =>{
             </Ul>
             <H2>e-mail</H2>
             <P>s2041131@g.tohoku-gakuin.ac.jp</P>
-            <FadeIn.Up>
-                <H3>Thanks for watching my Portfolio !</H3>
             </FadeIn.Up>
+            <FadeIn.Right>
+                <Border>
+                    <H3>Thanks for watching my Portfolio !</H3>
+                    <H3>I look forward to a good reply from you</H3>
+                </Border>
+            </FadeIn.Right>
         </ContactCss>
     )
 }
