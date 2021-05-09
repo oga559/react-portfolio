@@ -17,15 +17,15 @@ import aws from '../images/aws_icon_146074.png';
 const H2 = styled.h2`
     text-align: center;
     font-family: 'Noto Serif JP', serif;
+    font-size: 30px;
 `
 
 const Container = styled.div`
     width: 70%;
-    margin: 0 auto;
+    margin: 0 auto 30px auto;
     display: flex;
     justify-content: space-between;
     flex-wrap: wrap;
-
     ${media.lessThan("medium")`
     justify-content: center;
     `}
@@ -59,6 +59,7 @@ const Explanation = styled.div`
     padding: 12px;
     text-align: center;
 `
+
 export const Skill = () =>{
     return(
     <FadeIn.Up>
@@ -67,12 +68,12 @@ export const Skill = () =>{
             <Box>
                 <Img src={html}/>
                 <Title>HTML</Title>
-                <Explanation>一番始めに学習した言語です。問題無く書けます。</Explanation>
+                <Explanation>一番始めに学習した言語です。</Explanation>
 	        </Box>
 	        <Box>
 	        	<Img src={css}/>
                 <Title>CSS</Title>
-                <Explanation>HTML同様一番始めに学習した言語で問題無く書けます。</Explanation>
+                <Explanation>HTML同様一番始めに学習した言語です。</Explanation>
 	        </Box>
 	        <Box>
 	        	<Img src={js}/>
@@ -82,22 +83,22 @@ export const Skill = () =>{
 	        <Box>
 	        	<Img src={php}/>
                 <Title>php</Title>
-                <Explanation>サーバーサイドに興味があったので勉強しました。CRUD処理やMysql、CSVファイルを用いたデータ管理ができ掲示板サイトが作れます。</Explanation>
+                <Explanation>サーバーサイドに興味があったので勉強しました。CRUD処理やMysql、CSVファイルを用いたデータ管理ができて掲示板サイトを作れます。</Explanation>
 	        </Box>
             <Box>
                 <Img src={laravel}/>
                 <Title>Laravel</Title>
-                <Explanation>画像や文字のCRUD処理や、ログイン機能、設定時間でアラートが出るなどといったお薬手帳アプリを開発しました。</Explanation>
+                <Explanation>画像や文字のCRUD処理や、ログイン機能、設定した時間にアラートが出るなどといったお薬手帳アプリを開発しました。</Explanation>
             </Box>
             <Box>
                 <Img src={mysql}/>
                 <Title>Mysql</Title>
-                <Explanation>DBを学習するために勉強しました。</Explanation>
+                <Explanation>DBを学習するために勉強しました。ER図などからデータベースを設計していきます。</Explanation>
             </Box>
             <Box>
                 <Img src={react}/>
                 <Title>React</Title>
-                <Explanation>オシャンティなUIに興味があったので勉強を始めました。このポートフォリオはReactで作りました。
+                <Explanation>オシャンティなUIに興味があったので勉強を始めました。Todoアプリを作ったり、このポートフォリオはReactで作りました。
                 </Explanation>
             </Box>
             <Box>

@@ -17,6 +17,7 @@ const LinkCss = styled(Link)`
     width: 80px;
     color: #3a3a3f;
     text-decoration: none;
+    transition: 0.5s;
     :hover{
         opacity: 0.7;
         background-color: #b0b0b2;
