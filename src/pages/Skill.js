@@ -13,6 +13,8 @@ import mysql from '../images/mysql_original_wordmark_logo_icon_146417.png';
 import redux from '../images/redux_original_logo_icon_146365.png';
 import c from '../images/c_plain_logo_icon_146610.png';
 import aws from '../images/aws_icon_146074.png';
+import netlify from '../images/file_type_netlify_icon_130354.png';
+import github from '../images/github-logo_icon-icons.com_73546.png';
 
 const H2 = styled.h2`
     text-align: center;
@@ -34,7 +36,7 @@ const Container = styled.div`
 const Box = styled.div`
     box-shadow: 0 0 16px 0 rgb(0 0 0 / 4%);
     border-radius: 20px;
-    width: 40%;
+    width: 30%;
     height: 300px;
     margin: 10px 0;
     color: #707070;
@@ -104,7 +106,7 @@ export const Skill = () =>{
             <Box>
                 <Img src={redux}/>
                 <Title>Redux</Title>
-                <Explanation>大規模開発に利用されるとのことだったので勉強を始めました。</Explanation>
+                <Explanation>大規模開発に利用されるとのことだったので勉強を始めました。電卓アプリを作成しました。</Explanation>
             </Box>
             <Box>
                 <Img src={aws}/>
@@ -115,6 +117,16 @@ export const Skill = () =>{
                 <Img src={c}/>
                 <Title>C</Title>
                 <Explanation>大学で、条件分岐やデータ型などプログラミングの基礎的な部分を勉強しました。</Explanation>
+            </Box>
+            <Box>
+                <Img src={netlify}/>
+                <Title>Netlify</Title>
+                <Explanation>EC2以外のサービスでもデプロイしたいと思い学習しました。このポートフォリオは、Netlifyでデプロイしました。</Explanation>
+            </Box>
+            <Box>
+                <Img src={github}/>
+                <Title>Github/Git</Title>
+                <Explanation>ソースコードを管理したいと思い利用しました。現在は、ほとんどのプロジェクトでGithubを利用しています。</Explanation>
             </Box>
         </Container>
     </FadeIn.Up>
