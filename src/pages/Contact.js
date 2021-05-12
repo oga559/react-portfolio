@@ -1,7 +1,6 @@
 import React from 'react';
 import styled from 'styled-components';
 import * as FadeIn from "../component/FadeIn";
-import { useForm } from "react-hook-form";
 import  emailjs from 'emailjs-com';
 //アイコンと画像
 import qiita from '../images/f149c85d239c13b76388822357755672-png.png';
@@ -64,12 +63,9 @@ const Border = styled.div`
     width: 30%;
 `
 
-const Span = styled.span`
-    font-size: 10px;
-`
 
 export const Contact = () =>{
-    const { register, formState: { errors }, handleSubmit } = useForm();
+
 
     //メール送信email.js使用
     function sendEmail(e) {
@@ -90,25 +86,16 @@ export const Contact = () =>{
 
     return(
         <ContactCss>
-            <form className="contact-form" onSubmit={handleSubmit(sendEmail)} id="contact-form">
+            <FadeIn.Up>
+            <form className="contact-form" onSubmit={sendEmail} id="contact-form">
                 <label>お名前</label>
-                <input type="text" name="name" {...register("name", { required: true, maxLength: 20 })}/>
-                <Span>
-                    {errors.name && "お名前は必須入力です"}
-                </Span>
+                <input type="text" name="name" />
                 <label>メールアドレス</label>
-                <input type="email" name="email" {...register("email", { required: true })}/>
-                <Span>
-                    {errors.email && "メールアドレスは必須入力です"}
-                </Span>
+                <input type="email" name="email" />
                 <label>メッセージ</label>
-                <textarea name="message"  {...register("message", { required: true })}/>
-                <Span>
-                    {errors.message && "メッセージは必須入力です"}
-                </Span>
+                <textarea name="message" />
                 <button>送信</button>
             </form>
-            <FadeIn.Up>
                 <H2>Waiting for Contact !!!</H2>
             <H3>FOLLOW ME</H3>
             <Ul>
