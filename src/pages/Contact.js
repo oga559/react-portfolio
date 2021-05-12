@@ -1,9 +1,12 @@
 import React from 'react';
 import styled from 'styled-components';
+import * as FadeIn from "../component/FadeIn";
+import { useForm } from "react-hook-form";
+import  emailjs from 'emailjs-com';
+//アイコンと画像
+import qiita from '../images/f149c85d239c13b76388822357755672-png.png';
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faTwitter,faGithub } from "@fortawesome/free-brands-svg-icons";
-import * as FadeIn from "../component/FadeIn";
-import qiita from '../images/f149c85d239c13b76388822357755672-png.png';
 
 const ContactCss = styled.div`
     text-align: center;
@@ -61,9 +64,50 @@ const Border = styled.div`
     width: 30%;
 `
 
+const Span = styled.span`
+    font-size: 10px;
+`
+
 export const Contact = () =>{
+    const { register, formState: { errors }, handleSubmit } = useForm();
+
+    //メール送信email.js使用
+    function sendEmail(e) {
+        //環境変数
+        const UserId = process.env.REACT_APP_USER_ID;
+        const Service_Id = process.env.REACT_APP_SERVICE_ID;
+        const Template_Id = process.env.REACT_APP_TEMPLATE_ID;
+        e.preventDefault();
+
+        //email.js専用の関数でemailで送信
+        emailjs.sendForm(Service_Id,Template_Id, e.target,UserId)
+        .then((result) => {
+                console.log(result.text);
+                }, (error) => {
+                console.log(error.text);
+            });
+        }
+
     return(
         <ContactCss>
+            <form className="contact-form" onSubmit={handleSubmit(sendEmail)} id="contact-form">
+                <label>お名前</label>
+                <input type="text" name="name" {...register("name", { required: true, maxLength: 20 })}/>
+                <Span>
+                    {errors.name && "お名前は必須入力です"}
+                </Span>
+                <label>メールアドレス</label>
+                <input type="email" name="email" {...register("email", { required: true })}/>
+                <Span>
+                    {errors.email && "メールアドレスは必須入力です"}
+                </Span>
+                <label>メッセージ</label>
+                <textarea name="message"  {...register("message", { required: true })}/>
+                <Span>
+                    {errors.message && "メッセージは必須入力です"}
+                </Span>
+                <button>送信</button>
+            </form>
             <FadeIn.Up>
                 <H2>Waiting for Contact !!!</H2>
             <H3>FOLLOW ME</H3>
@@ -81,12 +125,12 @@ export const Contact = () =>{
             <H2>e-mail</H2>
             <P>s2041131@g.tohoku-gakuin.ac.jp</P>
             </FadeIn.Up>
-            <FadeIn.Right>
-                <Border>
-                    <H3>Thanks for watching my Portfolio !</H3>
-                    <H3>I look forward to a good reply from you</H3>
-                </Border>
-            </FadeIn.Right>
+            <FadeIn.Up>
+                    <Border>
+                        <H3>Thanks for watching my Portfolio !</H3>
+                        <H3>I look forward to a good reply from you</H3>
+                    </Border>
+            </FadeIn.Up>
         </ContactCss>
     )
 }
