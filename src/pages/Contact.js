@@ -1,9 +1,11 @@
-import React from 'react';
+import React, {useState} from 'react';
 import styled from 'styled-components';
+import * as FadeIn from "../component/FadeIn";
+import  { send } from 'emailjs-com';
+//アイコンと画像
+import qiita from '../images/f149c85d239c13b76388822357755672-png.png';
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faTwitter,faGithub } from "@fortawesome/free-brands-svg-icons";
-import * as FadeIn from "../component/FadeIn";
-import qiita from '../images/f149c85d239c13b76388822357755672-png.png';
 
 const ContactCss = styled.div`
     text-align: center;
@@ -11,6 +13,7 @@ const ContactCss = styled.div`
     width: 100%;
     font-size: 25px;
 `
+
 const H2 = styled.h2`
     font-family: 'Caveat', cursive;
     font-size: 50px;
@@ -61,11 +64,114 @@ const Border = styled.div`
     width: 30%;
 `
 
+const InputDiv = styled.div`
+	margin: 40px 3%;
+`
+
+const Input = styled.input`
+    font-family: monospace;
+    width: 70%;
+    padding: 0.8em;
+    outline: none;
+    border: 1px solid #DDD;
+    -webkit-border-radius: 3px;
+    -moz-border-radius: 3px;
+    border-radius: 3px;
+    font-size: 16px;
+    :focus{
+        box-shadow: 0 0 7px #3498db;
+        border: 1px solid #3498db;
+    }
+`
+
+const Textarea = styled.textarea`
+    font-family: monospace;
+    resize: none;
+    height: 200px;
+    width: 70%;
+    padding: 0.8em;
+    outline: none;
+    border: 1px solid #DDD;
+    -webkit-border-radius: 3px;
+    -moz-border-radius: 3px;
+    border-radius: 3px;
+    font-size: 16px;
+    :focus{
+        box-shadow: 0 0 7px #3498db;
+        border: 1px solid #3498db;
+    }
+`
+
+const Button = styled.button`
+    border-radius: 0;
+    background: -moz-linear-gradient(top, #FFF 0%, #EEE);
+    background: -webkit-gradient(linear, left top, left bottom, from(#FFF), to(#EEE));
+    border: 1px solid #DDD;
+    color: #111;
+    padding: 10px 30px;
+    -webkit-border-radius: 3px;
+    -moz-border-radius: 3px;
+    border-radius: 3px;
+    cursor: pointer;
+    :hover{
+        background: -moz-linear-gradient(top, #EFEFEF 0%, #EEE);
+        background: -webkit-gradient(linear, left top, left bottom, from(#EFEFEF), to(#EEE));
+    }
+`
+
 export const Contact = () =>{
+    const [name,setName] = useState('');
+    const [email,setEmail] = useState('');
+    const [message,setMessage] = useState('');
+
+    //メール送信email.js使用
+    function sendEmail(e) {
+        e.preventDefault();
+        //環境変数
+        const UserId = process.env.REACT_APP_USER_ID;
+        const Service_Id = process.env.REACT_APP_SERVICE_ID;
+        const Template_Id = process.env.REACT_APP_TEMPLATE_ID;
+
+        //メールに送る値を設定
+        const templateParams = {
+            name : name,
+            email : email,
+            message : message,
+        }
+
+        //email.js専用の関数でemailで送信
+        send(Service_Id,Template_Id,templateParams,UserId)
+        .then((result) => {
+                console.log(result.text);
+                setName('');
+                setEmail('');
+                setMessage('');
+                alert('メールを送信しました');
+                }, (error) => {
+                console.log(error.text);
+                alert('メール送信に失敗しました');
+            });
+        }
+
     return(
         <ContactCss>
             <FadeIn.Up>
-                <H2>Waiting for Contact !!!</H2>
+                <div>
+                    <H2>Waiting for Contact !!!</H2>
+                    <H3>Contact Form</H3>
+                    <form className="contact-form" onSubmit={(e) => sendEmail(e)} id="contact-form">
+                    <InputDiv>
+                            <Input type="text" name="name" value={ name } onChange={(e) => setName(e.target.value)} placeholder="名前(必須)" required />
+                    </InputDiv>
+                    <InputDiv>
+                            <Input type="email" name="email" value={ email } onChange={(e) => setEmail(e.target.value)  } placeholder="メールアドレス(必須)" pattern="[\w\d_-]+@[\w\d_-]+\.[\w\d._-]+" required/>
+                    </InputDiv>
+                    <InputDiv>
+                            <Textarea name="message" value={ message } onChange={(e) => setMessage(e.target.value)} placeholder="メッセージ(必須)" required/>
+                    </InputDiv>
+                    <Button>送信</Button>
+                    </form>
+                </div>
             <H3>FOLLOW ME</H3>
             <Ul>
                 <Li>
@@ -81,12 +187,12 @@ export const Contact = () =>{
             <H2>e-mail</H2>
             <P>s2041131@g.tohoku-gakuin.ac.jp</P>
             </FadeIn.Up>
-            <FadeIn.Right>
-                <Border>
-                    <H3>Thanks for watching my Portfolio !</H3>
-                    <H3>I look forward to a good reply from you</H3>
-                </Border>
-            </FadeIn.Right>
+            <FadeIn.Up>
+                    <Border>
+                        <H3>Thanks for watching my Portfolio !</H3>
+                        <H3>I look forward to a good reply from you</H3>
+                    </Border>
+            </FadeIn.Up>
         </ContactCss>
     )
 }
