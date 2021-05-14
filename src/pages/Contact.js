@@ -164,7 +164,7 @@ export const Contact = () =>{
                             <Input type="text" name="name" value={ name } onChange={(e) => setName(e.target.value)} placeholder="名前(必須)" required />
                     </InputDiv>
                     <InputDiv>
-                            <Input type="email" name="email" value={ email } onChange={(e) => setEmail(e.target.value)  } placeholder="メールアドレス(必須)" pattern="[\w\d_-]+@[\w\d_-]+\.[\w\d._-]+" required/>
+                            <Input type="email" name="email" value={ email } onChange={(e) => setEmail(e.target.value)  } placeholder="メールアドレス(必須)"  pattern="[a-z0-9._%+-]+@[a-z0-9.-]+\.[a-z]{2,3}$" required/>
                     </InputDiv>
                     <InputDiv>
                             <Textarea name="message" value={ message } onChange={(e) => setMessage(e.target.value)} placeholder="メッセージ(必須)" required/>
