@@ -31,7 +31,7 @@ export const Header = () => {
     return(
         <>
         <HeaderCss>
-                <LinkCss to="/" >Home</LinkCss>
+                <LinkCss to="/">Home</LinkCss>
                 <LinkCss to="/About">About</LinkCss>
                 <LinkCss to="/Skill">Skill</LinkCss>
                 <LinkCss to="/Contact">Contact</LinkCss>
