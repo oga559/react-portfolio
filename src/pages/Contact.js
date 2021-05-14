@@ -1,7 +1,7 @@
-import React from 'react';
+import React, {useState} from 'react';
 import styled from 'styled-components';
 import * as FadeIn from "../component/FadeIn";
-import  emailjs from 'emailjs-com';
+import  { send } from 'emailjs-com';
 //アイコンと画像
 import qiita from '../images/f149c85d239c13b76388822357755672-png.png';
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
@@ -13,6 +13,7 @@ const ContactCss = styled.div`
     width: 100%;
     font-size: 25px;
 `
+
 const H2 = styled.h2`
     font-family: 'Caveat', cursive;
     font-size: 50px;
@@ -63,40 +64,114 @@ const Border = styled.div`
     width: 30%;
 `
 
+const InputDiv = styled.div`
+	margin: 40px 3%;
+`
+
+const Input = styled.input`
+    font-family: monospace;
+    width: 70%;
+    padding: 0.8em;
+    outline: none;
+    border: 1px solid #DDD;
+    -webkit-border-radius: 3px;
+    -moz-border-radius: 3px;
+    border-radius: 3px;
+    font-size: 16px;
+    :focus{
+        box-shadow: 0 0 7px #3498db;
+        border: 1px solid #3498db;
+    }
+`
+
+const Textarea = styled.textarea`
+    font-family: monospace;
+    resize: none;
+    height: 200px;
+    width: 70%;
+    padding: 0.8em;
+    outline: none;
+    border: 1px solid #DDD;
+    -webkit-border-radius: 3px;
+    -moz-border-radius: 3px;
+    border-radius: 3px;
+    font-size: 16px;
+    :focus{
+        box-shadow: 0 0 7px #3498db;
+        border: 1px solid #3498db;
+    }
+`
+
+const Button = styled.button`
+    border-radius: 0;
+    background: -moz-linear-gradient(top, #FFF 0%, #EEE);
+    background: -webkit-gradient(linear, left top, left bottom, from(#FFF), to(#EEE));
+    border: 1px solid #DDD;
+    color: #111;
+    padding: 10px 30px;
+    -webkit-border-radius: 3px;
+    -moz-border-radius: 3px;
+    border-radius: 3px;
+    cursor: pointer;
+    :hover{
+        background: -moz-linear-gradient(top, #EFEFEF 0%, #EEE);
+        background: -webkit-gradient(linear, left top, left bottom, from(#EFEFEF), to(#EEE));
+    }
+`
 
 export const Contact = () =>{
-
+    const [name,setName] = useState('');
+    const [email,setEmail] = useState('');
+    const [message,setMessage] = useState('');
 
     //メール送信email.js使用
     function sendEmail(e) {
+        e.preventDefault();
         //環境変数
         const UserId = process.env.REACT_APP_USER_ID;
         const Service_Id = process.env.REACT_APP_SERVICE_ID;
         const Template_Id = process.env.REACT_APP_TEMPLATE_ID;
-        e.preventDefault();
+
+        //メールに送る値を設定
+        const templateParams = {
+            name : name,
+            email : email,
+            message : message,
+        }
 
         //email.js専用の関数でemailで送信
-        emailjs.sendForm(Service_Id,Template_Id, e.target,UserId)
+        send(Service_Id,Template_Id,templateParams,UserId)
         .then((result) => {
                 console.log(result.text);
+                setName('');
+                setEmail('');
+                setMessage('');
+                alert('メールを送信しました');
                 }, (error) => {
                 console.log(error.text);
+                alert('メール送信に失敗しました');
             });
         }
 
     return(
         <ContactCss>
             <FadeIn.Up>
-            <form className="contact-form" onSubmit={sendEmail} id="contact-form">
-                <label>お名前</label>
-                <input type="text" name="name" />
-                <label>メールアドレス</label>
-                <input type="email" name="email" />
-                <label>メッセージ</label>
-                <textarea name="message" />
-                <button>送信</button>
-            </form>
-                <H2>Waiting for Contact !!!</H2>
+                <div>
+                    <H2>Waiting for Contact !!!</H2>
+                    <H3>Contact Form</H3>
+                    <form className="contact-form" onSubmit={(e) => sendEmail(e)} id="contact-form">
+                    <InputDiv>
+                            <Input type="text" name="name" value={ name } onChange={(e) => setName(e.target.value)} placeholder="名前(必須)" required />
+                    </InputDiv>
+                    <InputDiv>
+                            <Input type="email" name="email" value={ email } onChange={(e) => setEmail(e.target.value)  } placeholder="メールアドレス(必須)" pattern="[\w\d_-]+@[\w\d_-]+\.[\w\d._-]+" required/>
+                    </InputDiv>
+                    <InputDiv>
+                            <Textarea name="message" value={ message } onChange={(e) => setMessage(e.target.value)} placeholder="メッセージ(必須)" required/>
+                    </InputDiv>
+                    <Button>送信</Button>
+                    </form>
+                </div>
             <H3>FOLLOW ME</H3>
             <Ul>
                 <Li>
