@@ -103,19 +103,33 @@ const Textarea = styled.textarea`
 `
 
 const Button = styled.button`
+    margin-top: 5px;
     border-radius: 0;
     background: -moz-linear-gradient(top, #FFF 0%, #EEE);
     background: -webkit-gradient(linear, left top, left bottom, from(#FFF), to(#EEE));
     border: 1px solid #DDD;
-    color: #111;
+    color: dimgray;
     padding: 10px 30px;
     -webkit-border-radius: 3px;
     -moz-border-radius: 3px;
-    border-radius: 3px;
     cursor: pointer;
+    text-align: center;
+    box-sizing: border-box;
+    display: block;
+    max-width: 200px;
+    width: 100%;
+    margin: 0 auto;
+    font-weight: bold;
+    padding: 13px 10px 10px;
+    border-radius: 5px;
+    border-bottom: 5px solid rgba(0,0,0,0.3);
     :hover{
         background: -moz-linear-gradient(top, #EFEFEF 0%, #EEE);
         background: -webkit-gradient(linear, left top, left bottom, from(#EFEFEF), to(#EEE));
+    }
+    :active{
+        border-bottom-width: 2px;
+        margin-top: 5px;
     }
 `
 
@@ -164,7 +178,7 @@ export const Contact = () =>{
                             <Input type="text" name="name" value={ name } onChange={(e) => setName(e.target.value)} placeholder="名前(必須)" required />
                     </InputDiv>
                     <InputDiv>
-                            <Input type="email" name="email" value={ email } onChange={(e) => setEmail(e.target.value)  } placeholder="メールアドレス(必須)"  pattern="[a-z0-9._%+-]+@[a-z0-9.-]+\.[a-z]{2,3}$" required/>
+                            <Input type="email" name="email" value={ email } onChange={(e) => setEmail(e.target.value)  } placeholder="メールアドレス(必須)" required/>
                     </InputDiv>
                     <InputDiv>
                             <Textarea name="message" value={ message } onChange={(e) => setMessage(e.target.value)} placeholder="メッセージ(必須)" required/>

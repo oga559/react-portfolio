@@ -13,17 +13,26 @@ const FooterCss = styled.div`
 
 const Icon = styled(FontAwesomeIcon)`
     margin: 12px;
+    font-size: 40px;
     color: black;
     :hover{
         color: #2b95ff;
     }
 `
 
+const Span = styled.span`
+    color: black;
+    font-size: 8px;
+`
+
 export const Footer = () => {
     return(
         <FooterCss>
-            <a href="https://twitter.com/ryousuk59423439"><Icon icon={faTwitter} /></a>
-            <a href="https://github.com/oga559"><Icon icon={faGithub} /></a>
+            <div>
+                <a href="https://twitter.com/ryousuk59423439"><Icon icon={faTwitter} /></a>
+                <a href="https://github.com/oga559"><Icon icon={faGithub} /></a>
+            </div>
+                <Span>@2021 ryosuke-portfolio</Span>
         </FooterCss>
     )
 }
