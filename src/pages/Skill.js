@@ -37,7 +37,7 @@ const Box = styled.div`
     box-shadow: 0 0 16px 0 rgb(0 0 0 / 4%);
     border-radius: 20px;
     width: 30%;
-    height: 300px;
+    height: auto;
     margin: 10px 0;
     color: #707070;
     display: inline-table;
@@ -100,7 +100,7 @@ export const Skill = () =>{
             <Box>
                 <Img src={react}/>
                 <Title>React</Title>
-                <Explanation>オシャンティなUIに興味があったので勉強を始めました。Todoアプリを作ったり、このポートフォリオはReactで作りました。
+                <Explanation>オシャレなUIに興味があったので勉強を始めました。Todoアプリを作ったり、このポートフォリオはReactで作りました。
                 </Explanation>
             </Box>
             <Box>
