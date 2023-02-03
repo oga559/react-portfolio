@@ -1,4 +1,5 @@
 reactで自己紹介サイトを作成しました。
+URL:https://ryosuke-portfolio.netlify.app/
 
 <h2>作成理由</H2>
 <p>spaのサイトがつくりたくなったから</p>
