@@ -61,7 +61,7 @@ export const About = () =>{
               Age
             </Dt>
             <Dd>
-              20歳(大学2年生)
+              21歳(大学3年生)
             </Dd>
           </Dl>
         </FadeIn.Right>
