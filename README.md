@@ -1,8 +1,12 @@
-reactで自己紹介サイトを作成しました。
-URL:https://ryosuke-portfolio.netlify.app/
+<h2>reactポートフォリオ</h2>
+
+
+<p>reactで自己紹介サイトを作成しました。
+URL:https://ryosuke-portfolio.netlify.app/</p>
 
 <h2>作成理由</H2>
-<p>spaのサイトがつくりたくなったから</p>
+<p>spaのサイトが作りたくなったから</p>
+<p>reactの勉強をしてみたくなったから</p>
 
 
 <h2>技術技術</h2>
@@ -19,7 +23,11 @@ URL:https://ryosuke-portfolio.netlify.app/
 <p>レスポンシブ対応</p>
 
 <h2>得たもの</h2>
-<p>reactの書き方</p>
+<p>reactの知見</p>
+<ul>
+  <li>部品管理がしやすい</li>
+  <li>想像より簡単にSPAが実現できたこと</li>
+</ul>
 <p>SPAのサイトを作れるようになった</p>
 <p>サーバレスでメール受信する方法</p>
 
