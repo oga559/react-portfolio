@@ -3,6 +3,8 @@
 
 <p>reactで自己紹介サイトを作成しました。
 URL:https://ryosuke-portfolio.netlify.app/</p>
+![スクリーンショット (11)](https://user-images.githubusercontent.com/70639495/216764284-935d4c50-6e29-4fa1-9e05-513444cabcdd.png)
+
 
 <h2>作成理由</H2>
 <p>spaのサイトが作りたくなったから</p>
