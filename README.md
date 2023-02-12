@@ -12,7 +12,7 @@ URL:https://ryosuke-portfolio.netlify.app/</p>
 <p>reactの勉強をしてみたくなったから</p>
 
 
-<h2>技術技術</h2>
+<h2>技術</h2>
 <p>React</p>
 <p>React Router</p>
 <p>React-Hook-Form</p>
